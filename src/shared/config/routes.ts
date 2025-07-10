@@ -1,6 +1,11 @@
 export const ROUTES = {
-    HOME: "/",
-    EXHIBITION: "/exhibition",
-    PROGRAM: "/program",
-    FACILITY: "/facility",
+    MAIN: "/main",
+    MAIN_DETAIL: `/main/:id`,
+    SETTINGS: "/settings",
+    SETTINGS_DETAIL: "/settings/:id"
+}
+
+
+export const routesBuilder = {
+    homeDetail: (id:string | number) => `${ROUTES.MAIN}/${id}`
 }

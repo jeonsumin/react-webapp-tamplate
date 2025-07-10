@@ -1,11 +1,14 @@
 import {Header, NavigationBar} from "components";
 import {Layout} from 'shared/ui'
 
-export const BaseLayout = () => {
+type Props = {
+    isDetail?: boolean;
+}
 
+export const BaseLayout = (props: Props) => {
     return (
         <Layout
-            headerSlot={<Header/>}
+            headerSlot={<Header {...props}/>}
             navigationSlot={<NavigationBar/>}
         />
     )
