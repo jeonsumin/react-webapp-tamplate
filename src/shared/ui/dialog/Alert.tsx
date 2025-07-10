@@ -9,10 +9,10 @@ export const Alert = (props: Props) => {
     const {title, message, isCancel, onConfirm, alertClose} = props;
     return (
         <>
-            <div className="absolute top-0 left-0 w-full h-screen bg-[#454545] opacity-50 z-[99998]"/>
+            <div className="absolute top-0 left-0 w-full h-screen bg-[#454545] opacity-50 z-[99998] "/>
             <div
-                className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center rounded-[10px] m-auto w-[90%] p-[40px_0] z-[99999] bg-white">
-                <div className="flex flex-col space-y-2 flex items-center justify-center">
+                className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center rounded-[10px] max-w-screen-sm w-[80%] m-auto  p-[40px_0] z-[99999] bg-white">
+                <div className="flex flex-col space-y-2 items-center justify-center">
                     <h1 className="mx-2 mb-6 leading-[1.6] text-[24px] font-bold">
                         {title}
                     </h1>
