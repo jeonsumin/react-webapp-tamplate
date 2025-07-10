@@ -18,7 +18,6 @@ export const RouterProvider = () => {
 
                 <Route element={<BaseLayout isDetail={true}/>}>
                     <Route path={ROUTES.MAIN_DETAIL} element={<HomeDetailPage/>}/>
-                    <Route path={ROUTES.SETTINGS_DETAIL} element={<SettingPage/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

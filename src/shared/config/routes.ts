@@ -7,5 +7,6 @@ export const ROUTES = {
 
 
 export const routesBuilder = {
-    homeDetail: (id:string | number) => `${ROUTES.MAIN}/${id}`
+    homeDetail: (id: string | number) => `${ROUTES.MAIN}/${id}`,
+    settingsDetail: (id: string | number) => `${ROUTES.SETTINGS}/${id}`
 }
