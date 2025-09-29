@@ -1,19 +1,11 @@
-import 'shared/base.css'
-
-import {StrictMode} from 'react'
-import {ModalProvider} from "app/provider/ModalProvider";
-import {createRoot} from 'react-dom/client'
 import {Provider} from "react-redux";
-import {RouterProvider} from "./provider/RouterProvider"
-import {store} from './store'
+import {store} from "app/store/store.ts";
+import {AppRouter} from "app/routes";
 
-
-createRoot(document.getElementById('root')!).render(
-    <StrictMode>
-        <ModalProvider>
-            <Provider store={store}>
-                <RouterProvider/>
-            </Provider>
-        </ModalProvider>
-    </StrictMode>,
-)
+export const App = () => {
+    return (
+        <Provider store={store}>
+            <AppRouter/>
+        </Provider>
+    )
+}

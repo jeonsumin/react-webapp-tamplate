@@ -27,30 +27,7 @@ export default defineFlatConfig([
       'no-throw-literal': 'off',
       'consistent-return': 'off',
       'arrow-body-style': ['warn', 'as-needed'],
-      'import/order': [
-        'error',
-        {
-          pathGroups: [
-            { pattern: 'react', group: 'builtin' },
-            { pattern: 'vite', group: 'builtin' },
-            { pattern: 'entities/**', group: 'internal', position: 'before' },
-            { pattern: 'features/**', group: 'internal', position: 'before' },
-            { pattern: 'widgets/**', group: 'internal', position: 'before' },
-            { pattern: 'pages/**', group: 'internal', position: 'before' },
-          ],
-          pathGroupsExcludedImportTypes: ['builtin'],
-          groups: [
-            'builtin',
-            'external',
-            'internal',
-            'parent',
-            'sibling',
-            'index',
-          ],
-          'newlines-between': 'never',
-          alphabetize: { order: 'asc', caseInsensitive: true },
-        },
-      ]
+      'import/order': 'off'
     },
     ignores: ['node_modules', 'dist', '.eslintrc.cjs', 'vite.config.ts'],
   },
