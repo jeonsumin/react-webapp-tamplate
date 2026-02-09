@@ -1,6 +1,5 @@
 import {createContext, ReactNode, useState} from "react";
-import {Modal} from "shared/ui/modal.tsx";
-import {Alert} from "shared/ui/alert.tsx";
+import {Alert, Modal} from "shared/ui";
 
 type ModalOptions = {
     title?: string;

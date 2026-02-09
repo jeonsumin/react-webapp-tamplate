@@ -1,4 +1,4 @@
-import { CheckBox} from './ui/checkbox.tsx'
+import { CheckBox} from './checkbox.tsx'
 
 export {
     CheckBox

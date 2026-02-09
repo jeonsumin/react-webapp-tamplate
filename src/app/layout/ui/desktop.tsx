@@ -1,7 +1,7 @@
 import {ReactNode} from "react";
 import {Outlet} from "react-router-dom";
 import {useSelector} from "react-redux";
-import {layoutState} from "app/layout";
+import {layoutSelector} from "app/layout";
 
 type Props = {
     headerSlot?: ReactNode;
@@ -10,7 +10,7 @@ type Props = {
 }
 export const Desktop = (props: Props) => {
     const {headerSlot, footerSlot, isFooter = true} = props
-    const layout = useSelector(layoutState);
+    const layout = useSelector(layoutSelector);
     return (
         <div className="w-full h-[100dvh] scrollbar">
             {layout.hasHeader && headerSlot}

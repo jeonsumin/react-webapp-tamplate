@@ -1,0 +1,52 @@
+@charset "utf-8";
+
+html,
+body {
+    box-sizing: border-box;
+    scroll-behavior: auto;
+    font-family: LG_EI_HEADLINE, sans-serif;
+}
+
+html {
+    overflow: hidden;
+}
+
+body, html { font-synthesis: none; }
+html, body {
+    -webkit-text-size-adjust: none; /* 사파리, 크롬 (iOS) */
+    -ms-text-size-adjust: none;     /* Internet Explorer */
+    -moz-text-size-adjust: none;    /* Firefox */
+    -o-text-size-adjust: none;      /* Opera */
+}
+
+
+@font-face {
+    font-family: "LG_EI_HEADLINE";
+    font-weight: 700;
+    src: local("LG_EI_HEADLINE-Bold"),
+    local("LG_EI_HEADLINE-Bold"),
+    url("fonts/LGEIHeadline-Bold.otf") format("otf"),
+    url("fonts/LGEIHeadline-Bold.ttf") format("ttf"),
+    url("fonts/LGEIHeadlineTTF-Bold.woff2") format("woff2"),
+}
+
+@font-face {
+    font-family: "LG_EI_HEADLINE";
+    font-weight: 600;
+    src: local("LG_EI_HEADLINE-SemiBold"),
+    local("LG_EI_HEADLINE-SemiBold"),
+    url("fonts/LGEIHeadline-SemiBold.otf") format("otf"),
+    url("fonts/LGEIHeadline-SemiBold.ttf") format("ttf"),
+    url("fonts/LGEIHeadlineTTF-Semibold.woff2") format("woff2"),
+}
+
+@font-face {
+    font-family: "LG_EI_HEADLINE";
+    font-weight: 400;
+    src: local("LG_EI_HEADLINE-Regular"),
+    local("LG_EI_HEADLINE-Regular"),
+    url("fonts/LGEIHeadline-Regular.otf") format("otf"),
+    url("fonts/LGEIHeadline-Regular.ttf") format("ttf"),
+    url("fonts/LGEIHeadlineTTF-Regular.woff2") format("woff2"),
+}
+

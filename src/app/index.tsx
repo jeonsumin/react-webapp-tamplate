@@ -1,11 +1,12 @@
 import {Provider} from "react-redux";
-import {store} from "app/store/store.ts";
-import {AppRouter} from "app/routes";
+import {store} from "./store/store.ts";
+import { AppRouter } from "views/app-router.tsx";
+import {createRoot} from 'react-dom/client'
+import 'shared/style/index.css'
+import "shared/style/commons.css"
 
-export const App = () => {
-    return (
-        <Provider store={store}>
-            <AppRouter/>
-        </Provider>
-    )
-}
+createRoot(document.getElementById('root')!).render(
+    <Provider store={store}>
+        <AppRouter />
+    </Provider>
+);

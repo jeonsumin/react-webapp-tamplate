@@ -1,14 +1,11 @@
 import {useSelector} from "react-redux";
-import {Desktop, layoutState, Mobile} from "app/layout";
-import {useEffect} from "react";
+import {Desktop, layoutSelector, Mobile} from "app/layout";
+import {MobileHeader} from "shared/ui/mobile-header.tsx";
 
 export const PageLayout = () => {
-    const layout = useSelector(layoutState);
+    const layout = useSelector(layoutSelector);
 
-    useEffect(() => {
-        console.log('layout component ', layout.component)
-    }, []);
     return layout.component == "mobile"
-        ? <Mobile headerSlot={<></>}/>
+        ? <Mobile headerSlot={<MobileHeader/> }/>
         : <Desktop headerSlot={<></>} footerSlot={<></>}/>
 }

@@ -1,12 +1,12 @@
+import {Label} from './Label.tsx'
 import {Input} from './Input'
 import {Switch} from './switch'
 import {Select} from './select'
 import {Alert} from './alert'
-import {Button} from './button/ui/button.tsx'
-import {Label} from './Label.tsx'
-import {Loading} from './loading.tsx'
+import {Button} from './button'
 import {Modal} from './modal.tsx'
-import {Checkbox} from './checkbox/ui/checkbox.tsx'
+import {Checkbox} from './checkbox/checkbox.tsx'
+import {Loading} from './Loading.tsx';
 
 export {
     Input,
@@ -16,6 +16,6 @@ export {
     Button,
     Label,
     Modal,
-    Loading,
-    Checkbox
+    Checkbox,
+    Loading
 }
