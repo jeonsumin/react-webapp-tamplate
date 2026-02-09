@@ -1,4 +1,3 @@
-import {PageLayout} from "app/layout";
 import {BrowserView, MobileView, TabletView} from "react-device-detect";
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import {ModalProvider} from "app/provider";
