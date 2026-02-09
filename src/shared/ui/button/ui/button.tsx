@@ -1,7 +1,7 @@
-import {ButtonProps} from "./button.types";
+import {ButtonProps} from "../types/button.types";
 import clsx from "clsx";
 
-const variantStyle = {
+const variantStyle: any = {
     primary: "bg-primary text-primary-foreground",
     secondary: "bg-secondary text-secondary-foreground",
     destructive: "bg-muted text-muted-foreground",
