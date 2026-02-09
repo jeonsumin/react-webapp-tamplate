@@ -31,7 +31,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "app/*": ["./app/*"],
-      "pages/*": ["./pages/*"],
+      "views/*": ["./views/*"],
       "widgets/*": ["./widgets/*"],
       "assets/*": ["./assets/*"],
       "components/*": ["./components/*"],

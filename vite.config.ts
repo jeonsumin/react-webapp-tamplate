@@ -15,7 +15,7 @@ export default defineConfig({
             alias: {
                 app: srcPath("app"),
                 shared: srcPath('shared'),
-                pages: srcPath('pages'),
+                views: srcPath('views'),
                 entities: srcPath('entities'),
                 features: srcPath('features'),
                 widgets: srcPath('widgets'),

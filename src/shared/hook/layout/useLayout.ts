@@ -1,6 +1,6 @@
 import {useDispatch} from "react-redux";
 import {useEffect} from "react";
-import {setMobileHeader} from "app/layout/lib/layout-slice.ts";
+import {setMobileHeader} from "app/layout/model/layout-slice.ts";
 
 type Props = {
     headerComponentName?: string;

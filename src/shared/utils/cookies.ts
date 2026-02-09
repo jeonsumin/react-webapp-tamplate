@@ -1,24 +1,29 @@
-import {Cookies} from "react-cookie";
+import { Cookies } from "react-cookie";
 
-export default class Cookie {
-    cookies = new Cookies();
+const cookies = new Cookies();
 
-    constructor() {
-    }
+export const COOKIE_KEY = {
+    ACCESS_TOKEN: "access_token",
+    REFRESH_TOKEN: "refresh_token",
+} as const;
 
-    getCookies(key: string) {
-        return this.cookies.get(key);
-    }
+export const cookie = {
+    get<T = unknown>(key: string): T | undefined {
+        return cookies.get(key);
+    },
 
-    setCookies(key: string, value: any, options?: any) {
+    set(key: string, value: unknown, options?: any) {
         const expires = new Date();
         expires.setHours(expires.getHours() + 12);
-        const option = {
-            path: "/",
-            expires: expires,
-            ...options
-        }
 
-        return this.cookies.set(key, value, {...option});
-    }
-}
+        cookies.set(key, value, {
+            path: "/",
+            expires,
+            ...options,
+        });
+    },
+
+    remove(key: string, options?: any) {
+        cookies.remove(key, { path: "/", ...options });
+    },
+};

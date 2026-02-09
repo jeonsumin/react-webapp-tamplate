@@ -1,4 +1,5 @@
-import {AppRouter} from "./ui/app-router";
-import {menuMap, routes, routeSetting, NavItem} from './lib/routes.tsx';
+import {AppRouter} from "./app-router.tsx";
 
-export {AppRouter, menuMap, routes, routeSetting, type NavItem};
+export {
+    AppRouter
+}
