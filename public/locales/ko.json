@@ -1,0 +1,23 @@
+{
+  "common": {
+    "save": "저장",
+    "cancel": "취소",
+    "confirm": "확인",
+    "delete": "삭제",
+    "edit": "편집",
+    "close": "닫기",
+    "loading": "불러오는 중...",
+    "error": "오류가 발생했습니다",
+    "retry": "다시 시도",
+    "search": "검색",
+    "noData": "데이터가 없습니다"
+  },
+  "nav": {
+    "home": "홈",
+    "about": "소개"
+  },
+  "home": {
+    "title": "컴포넌트 쇼케이스",
+    "subtitle": "공통 컴포넌트 모음"
+  }
+}

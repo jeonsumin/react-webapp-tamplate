@@ -1,44 +1,25 @@
 {
   "compilerOptions": {
-    "target": "ES6",
+    "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": ["ES6", "DOM", "DOM.Iterable"],
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
-
-    /* Bundler mode */
     "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true,
     "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
     "isolatedModules": true,
+    "moduleDetection": "force",
     "noEmit": true,
-    "allowJs": false,
     "jsx": "react-jsx",
-
-    /* Linting */
     "strict": true,
     "noUnusedLocals": true,
-    "esModuleInterop": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "forceConsistentCasingInFileNames": true,
-    "removeComments": true,
-
-
-    "typeRoots": ["node_modules/@types", "types/"],
-    "baseUrl": "./src",
+    "noUncheckedIndexedAccess": true,
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "app/*": ["./app/*"],
-      "views/*": ["./views/*"],
-      "widgets/*": ["./widgets/*"],
-      "assets/*": ["./assets/*"],
-      "components/*": ["./components/*"],
-      "features/*": ["./features/*"],
-      "entities/*": ["./entities/*"],
-      "shared/*": ["./shared/*"],
+      "@/*": ["src/*"]
     }
   },
-  "include": ["src", "eslint.config.ts", "types", "vite.config.ts"]
+  "include": ["src", "vite-env.d.ts"]
 }
