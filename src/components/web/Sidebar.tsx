@@ -4,6 +4,7 @@ import { useTranslation } from '@/hooks/useTranslation';
 const navItems = [
   { to: '/', key: 'nav.home' },
   { to: '/about', key: 'nav.about' },
+  { to: '/test', key: 'nav.test' },
 ] as const;
 
 export function Sidebar() {

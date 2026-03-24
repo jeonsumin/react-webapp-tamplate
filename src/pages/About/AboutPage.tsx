@@ -1,41 +1,12 @@
 import { Button } from "@/components/ui";
 import { VIEW_MODE } from "@/config/app.config";
+import { useCountdown } from "@/hooks/useCountdown";
+import { useTimer } from "@/hooks/useTimer";
 import { modal } from "@/store/modalStore";
+import { toast } from "@/store/toastStore";
 
 export function AboutPage() {
-  const openConfirm = () => {
-    modal.open({
-      title: "Confirm Action",
-      content: "Are you sure you want to perform this action?",
-      footer: (
-        <>
-          <Button onClick={() => modal.close()} variant="outline" size="sm">
-            Cancel
-          </Button>
-          <Button onClick={() => modal.closeAll()} variant="danger" size="sm">
-            Confirm & Close All
-          </Button>
-        </>
-      )
-    });
-  };
-
-  const testLogs = () => {
-    modal.open({
-      title: "Test Modal",
-      content: "This is a test modal. Click 'Open Nested' to stack another modal on top.",
-      footer: (
-        <>
-          <Button onClick={() => modal.close()} variant="outline" size="sm">
-            Close
-          </Button>
-          <Button onClick={openConfirm} size="sm">
-            Open Nested
-          </Button>
-        </>
-      )
-    });
-  };
+ 
   return (
     <div className="space-y-6">
       <div>
@@ -57,12 +28,13 @@ export function AboutPage() {
 
       <div className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
         <p className="text-sm text-gray-600">
-          View mode: <Button onClick={testLogs}>Button</Button>
+          View mode:
           <span className="inline-block rounded-full bg-green-100 px-3 py-0.5 text-xs font-semibold text-green-700 uppercase">
             {VIEW_MODE}
           </span>
         </p>
       </div>
+
     </div>
   );
 }

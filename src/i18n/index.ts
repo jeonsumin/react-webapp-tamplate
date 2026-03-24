@@ -5,6 +5,7 @@ export type { Locale, TranslationKey, TFunction, Translations };
 export const LOCALES: Record<Locale, string> = {
   ko: '한국어',
   en: 'English',
+  cn: '中文',
 };
 
 const SUPPORTED_LOCALES = Object.keys(LOCALES) as Locale[];

@@ -24,7 +24,7 @@ export interface Translations {
 }
 
 /** 지원 언어 */
-export type Locale = 'ko' | 'en';
+export type Locale = 'ko' | 'en' | 'cn';
 
 /**
  * 중첩 객체의 모든 leaf 키를 점 표기법 문자열로 추출

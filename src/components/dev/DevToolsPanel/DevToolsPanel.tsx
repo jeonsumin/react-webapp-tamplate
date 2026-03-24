@@ -24,7 +24,7 @@ export function DevToolsPanel() {
       <button
         onClick={() => setOpen(!isOpen)}
         aria-label="Toggle DevTools"
-        className="fixed bottom-20 right-4 z-[9999] w-11 h-11 rounded-full bg-gray-900 border border-gray-600 shadow-lg flex items-center justify-center text-lg hover:bg-gray-800 active:scale-95 transition-transform"
+        className="fixed bottom-5 right-4 z-[9999] w-11 h-11 rounded-full bg-gray-900 border border-gray-600 shadow-lg flex items-center justify-center text-lg hover:bg-gray-800 active:scale-95 transition-transform"
       >
         {errorCount > 0 ? (
           <span className="text-red-400 text-xs font-bold">{errorCount}E</span>

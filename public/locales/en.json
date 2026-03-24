@@ -14,7 +14,8 @@
   },
   "nav": {
     "home": "Home",
-    "about": "About"
+    "about": "About",
+    "test": "테스트"
   },
   "home": {
     "title": "Component Showcase",
