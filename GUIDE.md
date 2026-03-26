@@ -45,7 +45,7 @@ npm run dev:mobile    # 모바일 레이아웃 강제
 ### 코드에서 현재 모드 확인
 
 ```tsx
-import { VIEW_MODE, isWebMode, isMobileMode } from '@/config/app.config';
+import { VIEW_MODE, isWebMode, isMobileMode } from '@/shared/config/app.config';
 
 if (isWebMode()) { ... }
 ```
@@ -57,7 +57,7 @@ if (isWebMode()) { ... }
 모든 컴포넌트는 배럴 export로 한 번에 import 가능합니다.
 
 ```tsx
-import { Button, Input, Switch, Select, Checkbox, Badge, Spinner, Modal, Avatar } from '@/components/ui';
+import { Button, Input, Switch, Select, Checkbox, Badge, Spinner, Modal, Avatar } from '@/shared/ui';
 ```
 
 ### Button
@@ -161,7 +161,7 @@ const options = [
 어디서든 명령형으로 호출 가능합니다. 자동으로 사라지며 전역에서 관리됩니다.
 
 ```tsx
-import { toast } from '@/store/toastStore';
+import { toast } from '@/shared/store/toastStore';
 
 toast.success('저장되었습니다');
 toast.error('오류가 발생했습니다');
@@ -180,7 +180,7 @@ Zustand 기반 컨텍스트 모달로, 컴포넌트 트리 밖에서도 호출 �
 ### 기본 사용
 
 ```tsx
-import { modal } from '@/store/modalStore';
+import { modal } from '@/shared/store/modalStore';
 
 modal.open({
   title: '확인',
@@ -230,7 +230,7 @@ modal.open({
 ### 훅으로 사용
 
 ```tsx
-import { useModalStore } from '@/store/modalStore';
+import { useModalStore } from '@/shared/store/modalStore';
 
 const { open, close, stack } = useModalStore();
 ```
@@ -254,8 +254,8 @@ React Query + axios 기반의 레이어드 구조입니다.
 **① API 함수** `src/api/{도메인}/{도메인}.api.ts`
 
 ```ts
-import { apiClient } from '@/lib/axios';
-import type { ApiResponse } from '@/api/types';
+import { apiClient } from '@/shared/lib/axios';
+import type { ApiResponse } from '@/shared/api/types';
 
 export interface Post {
   id: number;
@@ -274,7 +274,7 @@ export const createPost = (data: Omit<Post, 'id'>) =>
 
 ```ts
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { toast } from '@/store/toastStore';
+import { toast } from '@/shared/store/toastStore';
 import { getPosts, createPost } from './post.api';
 
 const postKeys = {
@@ -328,7 +328,7 @@ interface PaginatedResponse<T> {
 ### 인증 토큰 설정
 
 ```tsx
-import { useAppStore } from '@/store/appStore';
+import { useAppStore } from '@/shared/store/appStore';
 
 const { setToken } = useAppStore();
 setToken('your-jwt-token');  // 이후 모든 요청에 자동으로 헤더 포함
@@ -344,7 +344,7 @@ setToken('your-jwt-token');  // 이후 모든 요청에 자동으로 헤더 포�
 ### 기본 사용
 
 ```tsx
-import { useTranslation } from '@/hooks/useTranslation';
+import { useTranslation } from '@/shared/hooks/useTranslation';
 
 function MyComponent() {
   const { t, locale, setLocale } = useTranslation();
@@ -362,7 +362,7 @@ function MyComponent() {
 ### 컴포넌트 외부에서 사용
 
 ```ts
-import { getT } from '@/store/localeStore';
+import { getT } from '@/shared/store/localeStore';
 
 const t = getT();
 t('common.error');
@@ -417,7 +417,7 @@ const { t, locale, setLocale, locales } = useTranslation();
 현재 기기가 모바일인지 감지합니다 (userAgent + pointer 미디어 쿼리).
 
 ```tsx
-import { useDeviceDetection } from '@/hooks/useDeviceDetection';
+import { useDeviceDetection } from '@/shared/hooks/useDeviceDetection';
 
 const { isMobile } = useDeviceDetection();
 ```
@@ -425,7 +425,7 @@ const { isMobile } = useDeviceDetection();
 ### `useTimer` — 스톱워치
 
 ```tsx
-import { useTimer } from '@/hooks/useTimer';
+import { useTimer } from '@/shared/hooks/useTimer';
 
 const { time, elapsed, isRunning, start, pause, reset, toggle } = useTimer({
   autoStart: false,
@@ -447,7 +447,7 @@ const { time, elapsed, isRunning, start, pause, reset, toggle } = useTimer({
 ### `useCountdown` — 카운트다운
 
 ```tsx
-import { useCountdown } from '@/hooks/useCountdown';
+import { useCountdown } from '@/shared/hooks/useCountdown';
 
 const { time, progress, isCompleted, start, pause, reset, restart } = useCountdown({
   duration: 60_000,    // 60초 (ms 단위)
@@ -476,7 +476,7 @@ restart(30_000);
 여러 쿼리/뮤테이션의 상태를 하나로 합산할 때 사용합니다.
 
 ```tsx
-import { getQueryStatus, getMutationStatus } from '@/hooks/useApi';
+import { getQueryStatus, getMutationStatus } from '@/shared/hooks/useApi';
 
 const status = getQueryStatus(useUsers(), usePosts());
 // { isLoading, isError, isSuccess }
@@ -500,43 +500,73 @@ const status = getQueryStatus(useUsers(), usePosts());
 
 ---
 
-## 9. 프로젝트 구조
+## 9. 프로젝트 구조 (FSD)
+
+레이어 의존성 규칙: `app → pages → widgets → entities → shared` (위 레이어만 아래 레이어를 import 가능)
 
 ```
 src/
-├── api/                    # API 함수 + React Query 훅
-│   ├── types.ts            # ApiResponse, PaginatedResponse 타입
-│   └── {domain}/
-│       ├── {domain}.api.ts      # axios 호출 함수 (순수 HTTP)
-│       └── {domain}.queries.ts  # useQuery / useMutation 훅
-├── components/
-│   ├── ui/                 # 공통 UI 컴포넌트
-│   ├── web/                # 웹 전용 컴포넌트 (Sidebar, Header)
-│   ├── mobile/             # 모바일 전용 컴포넌트 (TopBar, BottomNavigation)
-│   └── dev/                # 개발 전용 컴포넌트 (DevToolsPanel)
-├── config/
-│   └── app.config.ts       # VIEW_MODE 설정
-├── hooks/                  # 커스텀 훅
-├── i18n/
-│   ├── types.ts            # Translations 인터페이스 (타입 기준)
-│   └── index.ts            # fetchTranslations, createT
-├── layouts/                # WebLayout, MobileLayout, LayoutProvider
-├── lib/
-│   ├── axios.ts            # axios 인스턴스
-│   └── queryClient.ts      # QueryClient 설정
-├── pages/                  # 페이지 컴포넌트
-├── router/
-│   └── AppRouter.tsx       # 라우트 정의
-└── store/                  # Zustand 스토어
-    ├── appStore.ts         # 앱 전역 상태 (viewMode, token, sidebar)
-    ├── toastStore.ts       # Toast 전역 관리
-    ├── modalStore.ts       # Modal 전역 관리
-    ├── localeStore.ts      # 현재 언어 + t() 함수
-    └── devStore.ts         # DevTools 로그 관리
+├── app/                          # 앱 초기화, 전역 설정
+│   ├── layouts/                  # LayoutProvider, WebLayout, MobileLayout
+│   ├── providers/                # QueryClientProvider 래퍼
+│   ├── router/                   # AppRouter
+│   ├── App.tsx
+│   └── index.css
+│
+├── pages/                        # 라우트 레벨 페이지
+│   ├── Home/HomePage.tsx
+│   ├── About/AboutPage.tsx
+│   └── Test/TestPage.tsx
+│
+├── widgets/                      # 독립적 복합 UI 블록
+│   ├── web-sidebar/WebSidebar.tsx
+│   ├── web-header/WebHeader.tsx
+│   ├── mobile-topbar/MobileTopBar.tsx
+│   └── mobile-bottom-nav/MobileBottomNav.tsx
+│
+├── entities/                     # 비즈니스 엔티티
+│   └── user/
+│       ├── api.ts                # axios 호출 함수
+│       ├── queries.ts            # useQuery / useMutation 훅
+│       └── index.ts
+│
+└── shared/                       # 재사용 가능한 공통 모듈
+    ├── ui/                       # 공통 UI 컴포넌트 (11종)
+    ├── api/
+    │   └── types.ts              # ApiResponse, PaginatedResponse 타입
+    ├── config/
+    │   └── app.config.ts         # VIEW_MODE 설정
+    ├── dev/
+    │   └── DevToolsPanel/        # 개발 전용 패널
+    ├── hooks/                    # 커스텀 훅 (useTimer, useCountdown 등)
+    ├── i18n/
+    │   ├── types.ts              # Translations 인터페이스
+    │   └── index.ts              # fetchTranslations, createT
+    ├── lib/
+    │   ├── axios.ts              # axios 인스턴스
+    │   └── queryClient.ts        # QueryClient 설정
+    └── store/                    # Zustand 스토어
+        ├── appStore.ts           # 앱 전역 상태 (viewMode, token, sidebar)
+        ├── toastStore.ts         # Toast 전역 관리
+        ├── modalStore.ts         # Modal 전역 관리
+        ├── localeStore.ts        # 현재 언어 + t() 함수
+        └── devStore.ts           # DevTools 로그 관리
 
 public/
 └── locales/
-    ├── ko.json             # 한국어 번역
-    ├── en.json             # 영어 번역
-    └── {locale}.json       # 추가 언어
+    ├── ko.json                   # 한국어 번역
+    ├── en.json                   # 영어 번역
+    └── {locale}.json             # 추가 언어
 ```
+
+### 새 기능 추가 시 위치 결정 기준
+
+| 추가할 것 | 위치 |
+|-----------|------|
+| 페이지 | `pages/{name}/` |
+| 레이아웃에 속한 복잡한 UI | `widgets/{name}/` |
+| 비즈니스 엔티티 + API | `entities/{domain}/` |
+| 재사용 UI 컴포넌트 | `shared/ui/{Name}/` |
+| 전역 상태 (스토어) | `shared/store/` |
+| 커스텀 훅 | `shared/hooks/` |
+| 특정 기능 단위 | `features/{name}/` (필요 시 레이어 추가) |
