@@ -471,7 +471,7 @@ restart(30_000);
 | `isCompleted` | `boolean` | 완료 여부 |
 | `restart(duration?)` | `(ms?) => void` | 새 duration으로 즉시 재시작 |
 
-### `useApi` — 다중 쿼리 상태 통합
+### `useApi` — 다중 쿼리 상태 통
 
 여러 쿼리/뮤테이션의 상태를 하나로 합산할 때 사용합니다.
 
