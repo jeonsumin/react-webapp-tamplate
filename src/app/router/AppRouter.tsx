@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import {HomePage} from "pages/Home/HomePage";
+import AboutPage from "pages/About/AboutPage";
 
 /**
  * Central route definitions.
@@ -10,6 +11,7 @@ export function AppRouter() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/about" element={<AboutPage />} />
     </Routes>
   );
 }
