@@ -1,4 +1,4 @@
-import { useAppStore } from '@/shared/store/appStore';
+import { useAppStore } from 'shared/store/appStore';
 
 export function StoreTab() {
   const state = useAppStore();

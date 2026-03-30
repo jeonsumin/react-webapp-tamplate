@@ -1,7 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { HomePage } from '@/pages/Home/HomePage';
-import { AboutPage } from '@/pages/About/AboutPage';
-import { TestPage } from '@/pages/Test/TestPage';
+import {HomePage} from "pages/Home/HomePage";
 
 /**
  * Central route definitions.
@@ -12,8 +10,6 @@ export function AppRouter() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/about" element={<AboutPage />} />
-      <Route path="/test" element={<TestPage />} />
     </Routes>
   );
 }

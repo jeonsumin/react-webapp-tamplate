@@ -45,7 +45,7 @@ npm run dev:mobile    # 모바일 레이아웃 강제
 ### 코드에서 현재 모드 확인
 
 ```tsx
-import { VIEW_MODE, isWebMode, isMobileMode } from '@/shared/config/app.config';
+import { VIEW_MODE, isWebMode, isMobileMode } from 'shared/config/app.config';
 
 if (isWebMode()) { ... }
 ```
@@ -57,7 +57,7 @@ if (isWebMode()) { ... }
 모든 컴포넌트는 배럴 export로 한 번에 import 가능합니다.
 
 ```tsx
-import { Button, Input, Switch, Select, Checkbox, Badge, Spinner, Modal, Avatar } from '@/shared/ui';
+import { Button, Input, Switch, Select, Checkbox, Badge, Spinner, Modal, Avatar } from 'shared/ui';
 ```
 
 ### Button
@@ -161,7 +161,7 @@ const options = [
 어디서든 명령형으로 호출 가능합니다. 자동으로 사라지며 전역에서 관리됩니다.
 
 ```tsx
-import { toast } from '@/shared/store/toastStore';
+import { toast } from 'shared/store/toastStore';
 
 toast.success('저장되었습니다');
 toast.error('오류가 발생했습니다');
@@ -180,7 +180,7 @@ Zustand 기반 컨텍스트 모달로, 컴포넌트 트리 밖에서도 호출 �
 ### 기본 사용
 
 ```tsx
-import { modal } from '@/shared/store/modalStore';
+import { modal } from 'shared/store/modalStore';
 
 modal.open({
   title: '확인',
@@ -230,7 +230,7 @@ modal.open({
 ### 훅으로 사용
 
 ```tsx
-import { useModalStore } from '@/shared/store/modalStore';
+import { useModalStore } from 'shared/store/modalStore';
 
 const { open, close, stack } = useModalStore();
 ```
@@ -254,8 +254,8 @@ React Query + axios 기반의 레이어드 구조입니다.
 **① API 함수** `src/api/{도메인}/{도메인}.api.ts`
 
 ```ts
-import { apiClient } from '@/shared/lib/axios';
-import type { ApiResponse } from '@/shared/api/types';
+import { apiClient } from 'shared/lib/axios';
+import type { ApiResponse } from 'shared/api/types';
 
 export interface Post {
   id: number;
@@ -274,7 +274,7 @@ export const createPost = (data: Omit<Post, 'id'>) =>
 
 ```ts
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { toast } from '@/shared/store/toastStore';
+import { toast } from 'shared/store/toastStore';
 import { getPosts, createPost } from './post.api';
 
 const postKeys = {
@@ -328,7 +328,7 @@ interface PaginatedResponse<T> {
 ### 인증 토큰 설정
 
 ```tsx
-import { useAppStore } from '@/shared/store/appStore';
+import { useAppStore } from 'shared/store/appStore';
 
 const { setToken } = useAppStore();
 setToken('your-jwt-token');  // 이후 모든 요청에 자동으로 헤더 포함
@@ -344,7 +344,7 @@ setToken('your-jwt-token');  // 이후 모든 요청에 자동으로 헤더 포�
 ### 기본 사용
 
 ```tsx
-import { useTranslation } from '@/shared/hooks/useTranslation';
+import { useTranslation } from 'shared/hooks/useTranslation';
 
 function MyComponent() {
   const { t, locale, setLocale } = useTranslation();
@@ -362,7 +362,7 @@ function MyComponent() {
 ### 컴포넌트 외부에서 사용
 
 ```ts
-import { getT } from '@/shared/store/localeStore';
+import { getT } from 'shared/store/localeStore';
 
 const t = getT();
 t('common.error');
@@ -417,7 +417,7 @@ const { t, locale, setLocale, locales } = useTranslation();
 현재 기기가 모바일인지 감지합니다 (userAgent + pointer 미디어 쿼리).
 
 ```tsx
-import { useDeviceDetection } from '@/shared/hooks/useDeviceDetection';
+import { useDeviceDetection } from 'shared/hooks/useDeviceDetection';
 
 const { isMobile } = useDeviceDetection();
 ```
@@ -425,7 +425,7 @@ const { isMobile } = useDeviceDetection();
 ### `useTimer` — 스톱워치
 
 ```tsx
-import { useTimer } from '@/shared/hooks/useTimer';
+import { useTimer } from 'shared/hooks/useTimer';
 
 const { time, elapsed, isRunning, start, pause, reset, toggle } = useTimer({
   autoStart: false,
@@ -447,7 +447,7 @@ const { time, elapsed, isRunning, start, pause, reset, toggle } = useTimer({
 ### `useCountdown` — 카운트다운
 
 ```tsx
-import { useCountdown } from '@/shared/hooks/useCountdown';
+import { useCountdown } from 'shared/hooks/useCountdown';
 
 const { time, progress, isCompleted, start, pause, reset, restart } = useCountdown({
   duration: 60_000,    // 60초 (ms 단위)
@@ -476,7 +476,7 @@ restart(30_000);
 여러 쿼리/뮤테이션의 상태를 하나로 합산할 때 사용합니다.
 
 ```tsx
-import { getQueryStatus, getMutationStatus } from '@/shared/hooks/useApi';
+import { getQueryStatus, getMutationStatus } from 'shared/hooks/useApi';
 
 const status = getQueryStatus(useUsers(), usePosts());
 // { isLoading, isError, isSuccess }

@@ -3,7 +3,7 @@ import {
   type ButtonHTMLAttributes,
   type ReactNode,
 } from 'react';
-import { Spinner } from '@/shared/ui/Spinner';
+import { Spinner } from 'shared/ui/Spinner';
 
 // -- Types ------------------------------------------------------------------
 

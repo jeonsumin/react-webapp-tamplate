@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { VIEW_MODE, type ViewMode } from '@/shared/config/app.config';
+import { VIEW_MODE, type ViewMode } from 'shared/config/app.config';
 
 interface AppState {
   /** Current view mode determined at build time */

@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { useTranslation } from '@/shared/hooks/useTranslation';
+import { useTranslation } from 'shared/hooks/useTranslation';
 
 const navItems = [
   { to: '/', key: 'nav.home' },

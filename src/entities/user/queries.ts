@@ -3,7 +3,7 @@ import {
   useMutation,
   useQueryClient,
 } from '@tanstack/react-query';
-import { toast } from '@/shared/store/toastStore';
+import { toast } from 'shared/store/toastStore';
 import {
   getUsers,
   getUser,

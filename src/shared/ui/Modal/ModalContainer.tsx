@@ -1,4 +1,4 @@
-import { useModalStore } from '@/shared/store/modalStore';
+import { useModalStore } from 'shared/store/modalStore';
 import { Modal } from './Modal';
 
 export function ModalContainer() {

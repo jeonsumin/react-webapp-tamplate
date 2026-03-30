@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useDevStore, type LogLevel } from '@/shared/store/devStore';
+import { useDevStore, type LogLevel } from 'shared/store/devStore';
 
 const LEVELS: LogLevel[] = ['log', 'info', 'warn', 'error'];
 

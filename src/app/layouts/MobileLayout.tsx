@@ -1,5 +1,5 @@
-import { TopBar } from '@/widgets/mobile-topbar/MobileTopBar';
-import { BottomNavigation } from '@/widgets/mobile-bottom-nav/MobileBottomNav';
+import { TopBar } from 'widgets/mobile-topbar/MobileTopBar';
+import { BottomNavigation } from 'widgets/mobile-bottom-nav/MobileBottomNav';
 
 interface MobileLayoutProps {
   children: React.ReactNode;

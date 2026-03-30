@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { useAppStore } from '@/shared/store/appStore';
-import { toast } from '@/shared/store/toastStore';
+import { useAppStore } from 'shared/store/appStore';
+import { toast } from 'shared/store/toastStore';
 
 /**
  * Pre-configured axios instance.
@@ -11,7 +11,7 @@ import { toast } from '@/shared/store/toastStore';
  *   error messages via the toast store.
  */
 export const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL as string,
+  baseURL: import.meta.env.VITE_API_BASE_URL as string || "http://localhost:8080",
   headers: {
     'Content-Type': 'application/json',
   },

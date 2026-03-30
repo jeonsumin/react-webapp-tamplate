@@ -7,7 +7,7 @@ import {
   LOCALES,
   type Locale,
   type TFunction,
-} from '@/shared/i18n';
+} from 'shared/i18n';
 
 interface LocaleStore {
   locale: Locale;

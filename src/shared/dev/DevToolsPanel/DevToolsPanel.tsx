@@ -1,4 +1,4 @@
-import { useDevStore } from '@/shared/store/devStore';
+import { useDevStore } from 'shared/store/devStore';
 import { useConsoleInterceptor } from './useConsoleInterceptor';
 import { LogsTab } from './LogsTab';
 import { QueryTab } from './QueryTab';

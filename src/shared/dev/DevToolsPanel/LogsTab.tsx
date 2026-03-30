@@ -1,4 +1,4 @@
-import { useDevStore, type LogLevel } from '@/shared/store/devStore';
+import { useDevStore, type LogLevel } from 'shared/store/devStore';
 
 const levelStyle: Record<LogLevel, string> = {
   log: 'text-gray-300',

@@ -1,4 +1,4 @@
-import { useLocaleStore } from '@/shared/store/localeStore';
+import { useLocaleStore } from 'shared/store/localeStore';
 
 /**
  * 현재 locale의 t() 함수와 언어 전환 함수를 반환.

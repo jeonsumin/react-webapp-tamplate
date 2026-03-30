@@ -1,4 +1,4 @@
-import { LocaleSwitcher } from '@/shared/ui/LocaleSwitcher';
+import { LocaleSwitcher } from 'shared/ui/LocaleSwitcher';
 
 interface HeaderProps {
   title?: string;

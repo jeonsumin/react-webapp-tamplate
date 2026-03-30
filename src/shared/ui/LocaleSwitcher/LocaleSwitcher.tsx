@@ -1,5 +1,5 @@
-import { useTranslation } from '@/shared/hooks/useTranslation';
-import type { Locale } from '@/shared/i18n';
+import { useTranslation } from 'shared/hooks/useTranslation';
+import type { Locale } from 'shared/i18n';
 
 interface LocaleSwitcherProps {
   className?: string;

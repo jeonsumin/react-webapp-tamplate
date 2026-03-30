@@ -1,5 +1,5 @@
-import { VIEW_MODE } from '@/shared/config/app.config';
-import { useDeviceDetection } from '@/shared/hooks/useDeviceDetection';
+import { VIEW_MODE } from 'shared/config/app.config';
+import { useDeviceDetection } from 'shared/hooks/useDeviceDetection';
 import { WebLayout } from './WebLayout';
 import { MobileLayout } from './MobileLayout';
 

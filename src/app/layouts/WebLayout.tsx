@@ -1,5 +1,5 @@
-import { Sidebar } from '@/widgets/web-sidebar/WebSidebar';
-import { Header } from '@/widgets/web-header/WebHeader';
+import { Sidebar } from 'widgets/web-sidebar/WebSidebar';
+import { Header } from 'widgets/web-header/WebHeader';
 
 interface WebLayoutProps {
   children: React.ReactNode;

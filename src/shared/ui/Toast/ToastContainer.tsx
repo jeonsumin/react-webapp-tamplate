@@ -1,4 +1,4 @@
-import { useToastStore } from '@/shared/store/toastStore';
+import { useToastStore } from 'shared/store/toastStore';
 import { ToastItem } from './Toast';
 
 // -- Component ---------------------------------------------------------------

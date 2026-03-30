@@ -1,5 +1,5 @@
 import { QueryClient, type DefaultOptions } from '@tanstack/react-query';
-import { toast } from '@/shared/store/toastStore';
+import { toast } from 'shared/store/toastStore';
 
 const DEFAULT_STALE_TIME = 60 * 1000; // 1 minute
 const DEFAULT_RETRY_COUNT = 1;
